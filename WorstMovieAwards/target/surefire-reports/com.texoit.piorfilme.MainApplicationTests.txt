@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: com.texoit.piorfilme.MainApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.551 s <<< FAILURE! - in com.texoit.piorfilme.MainApplicationTests
+com.texoit.piorfilme.MainApplicationTests  Time elapsed: 0.549 s  <<< ERROR!
+java.lang.IllegalStateException: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration or @SpringBootTest(classes=...) with your test
+
