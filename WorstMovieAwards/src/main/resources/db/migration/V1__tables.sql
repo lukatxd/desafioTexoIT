@@ -1,0 +1,22 @@
+CREATE TABLE TBLMOVIES(
+	id int IDENTITY(1,1) PRIMARY KEY,
+	year int,
+	title varchar,
+	winner bool
+);
+
+CREATE TABLE TBLPRODUCERS(
+	id int IDENTITY(1,1) PRIMARY KEY,
+	name varchar
+);
+
+CREATE TABLE TBLMOVIEPRODUCERS(
+);
+
+CREATE TABLE TBLSTUDIOS(
+	id int IDENTITY(1,1) PRIMARY KEY,
+	name varchar
+);
+
+CREATE TABLE TBLMOVIESTUDIOS(
+);
