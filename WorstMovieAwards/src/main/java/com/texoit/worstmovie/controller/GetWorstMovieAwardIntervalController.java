@@ -1,8 +1,7 @@
 package com.texoit.worstmovie.controller;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,10 +19,9 @@ public class GetWorstMovieAwardIntervalController {
 	@Autowired
 	MovieService worstMovieService;
 	
-	@GetMapping(path = "/getInterval", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Map<String, List<AwardInterval>> a() {
-		Map<String, List<AwardInterval>> mapOfMinMaxInterval = new HashMap<String, List<AwardInterval>>();
-		mapOfMinMaxInterval = worstMovieService.getMinMaxInterval();
+	@GetMapping(path = "/getMinMaxInterval", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Map<String, Set<AwardInterval>> a() {
+		Map<String, Set<AwardInterval>> mapOfMinMaxInterval = worstMovieService.getMinMaxInterval();
 		return mapOfMinMaxInterval;
 	}
 }

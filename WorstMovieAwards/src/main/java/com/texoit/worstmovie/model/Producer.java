@@ -1,37 +1,69 @@
 package com.texoit.worstmovie.model;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "TBLPRODUCERS")
 public class Producer {
 
-	public Producer(){
-		movies = new HashSet<>();
+	public Producer() {
 	}
-	
-	public Producer(String name, Set<Movie> movies) {
-		this.name= name;
-		this.movies = movies;
+
+	public Producer(String name) {
+		this.name = name;
 	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column
 	private String name;
-	
-	@ManyToMany(mappedBy = "producers")
-	private Set<Movie> movies;
-	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Producer [id=" + id + ", name=" + name + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Producer other = (Producer) obj;
+		return Objects.equals(id, other.id) && Objects.equals(name, other.name);
+	}
+
+
 }

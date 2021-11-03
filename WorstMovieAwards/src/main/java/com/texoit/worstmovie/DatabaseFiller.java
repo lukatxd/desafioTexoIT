@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationContext;
@@ -42,7 +44,6 @@ public class DatabaseFiller {
 		String filePath = (String)appContext.getEnvironment().getProperty(ConfigurationProperties.DATABASEFILLER_FOLDER);
 		File rootFolder = new File(filePath);
 		List<Movie> movies = readFiles(rootFolder);
-		System.out.println("DATABASE FILLED");
 		return movies;
 	}
 
@@ -51,7 +52,8 @@ public class DatabaseFiller {
 		if(null == rootFolder)
 			return movies;
 		
-		for (File file : rootFolder.listFiles()) {
+		FilenameFilter filenameFilter = new WildcardFileFilter("*.csv");
+		for (File file : rootFolder.listFiles(filenameFilter)) {
 			if (file.isDirectory()) {
 				movies.addAll(readFiles(file));
 			} else {

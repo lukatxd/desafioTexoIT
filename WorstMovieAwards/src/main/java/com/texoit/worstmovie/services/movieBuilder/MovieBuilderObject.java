@@ -72,7 +72,7 @@ public class MovieBuilderObject {
 	}
 	
 	private String sanitizePluralString(String name) {
-		return name.replace("and ", "").trim();
+		return name.replace(" and ", "").trim();
 	}
 
 	public Movie build() {

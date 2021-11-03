@@ -1,7 +1,5 @@
 package com.texoit.worstmovie.services;
 
-import java.util.HashSet;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
@@ -19,7 +17,7 @@ public class ProducerService {
 	public Producer getProducerByName(String name) {
 		Producer producer = producerRepository.findByName(name);
 		if(null == producer) {
-			producer = new Producer(name, new HashSet<>());
+			producer = new Producer(name);
 			producerRepository.save(producer);
 		}
 		return producer;

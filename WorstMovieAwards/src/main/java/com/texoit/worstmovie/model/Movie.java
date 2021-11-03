@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,13 +42,13 @@ public class Movie {
 	@Column
 	private String title;
 
-	@ManyToMany(cascade = CascadeType.MERGE)
+	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinTable(name="TBLMOVIESTUDIOS", joinColumns=
     {@JoinColumn(name="movieId")}, inverseJoinColumns=
       {@JoinColumn(name="studioId")})
 	private Set<Studio> studios;
 	
-	@ManyToMany(cascade = CascadeType.MERGE)
+	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(name="TBLMOVIEPRODUCERS", joinColumns=
     {@JoinColumn(name="movieId")}, inverseJoinColumns=
       {@JoinColumn(name="producerId")})
