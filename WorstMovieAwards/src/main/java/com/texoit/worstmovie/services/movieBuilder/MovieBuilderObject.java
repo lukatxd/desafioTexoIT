@@ -1,5 +1,6 @@
 package com.texoit.worstmovie.services.movieBuilder;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -28,12 +29,14 @@ public class MovieBuilderObject {
 	}
 	
 	public MovieBuilderObject withProducers(String producers) {
-		String[] producersNames = producers.split(",");
-		for(String name : producersNames) {
-			name = sanitizePluralString(name);
+		for(String name : sanitizePluralString(producers)) {
 			this.addSingleProducer(name);
 		}
 		return this;
+	}
+	
+	private String[] sanitizePluralString(String names) {
+		return StringUtils.stripAll(names.split(",| and ")); 
 	}
 	
 	private MovieBuilderObject addSingleProducer(String producerName) {
@@ -54,10 +57,8 @@ public class MovieBuilderObject {
 		return this;
 	}
 
-	public MovieBuilderObject withStudios(String producers) {
-		String[] studiosNames = producers.split(",");
-		for(String name : studiosNames) {
-			name = sanitizePluralString(name);
+	public MovieBuilderObject withStudios(String studios) {
+		for(String name : sanitizePluralString(studios)) {
 			this.addSingleStudio(name);
 		}
 		return this;
@@ -71,10 +72,6 @@ public class MovieBuilderObject {
 		return this;
 	}
 	
-	private String sanitizePluralString(String name) {
-		return name.replace(" and ", "").trim();
-	}
-
 	public Movie build() {
 		return movie;
 	}
