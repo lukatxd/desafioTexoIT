@@ -19,9 +19,9 @@ public class GetWorstMovieAwardIntervalController {
 	@Autowired
 	MovieService worstMovieService;
 	
-	@GetMapping(path = "/getMinMaxInterval", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path = "/getIntervals", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Map<String, Set<AwardInterval>> a() {
-		Map<String, Set<AwardInterval>> mapOfMinMaxInterval = worstMovieService.getMinMaxInterval();
+		Map<String, Set<AwardInterval>> mapOfMinMaxInterval = worstMovieService.getIntervals();
 		return mapOfMinMaxInterval;
 	}
 }
