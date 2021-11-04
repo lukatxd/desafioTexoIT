@@ -29,12 +29,16 @@ The following maven command will run the api Use the command:
 OPTIONAL: 
 mvn test -Ddatabasefiller.folder="<b>YOUR FOLDER HERE</b>"
 
+
+# Swagger docs
+
+http://localhost:8080/api/swagger-ui/index.html?configUrl=/api/v3/api-docs/swagger-config#/get-worst-movie-award-interval-controller/a
+
 # How to make calls to the api
 
 This API has a single GET endpoint, it can be called through the browser by inserting the url in the address bar and sending, or through a dedicated tool such as Postman. 
 Once the API is running, it can be called through the following URL:
 http://localhost:8080/api/worstMovie/getIntervals
-
 
 # Expected outcome
 
