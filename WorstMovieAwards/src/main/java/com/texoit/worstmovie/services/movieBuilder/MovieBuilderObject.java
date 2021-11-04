@@ -27,7 +27,7 @@ public class MovieBuilderObject {
 		movie = new Movie();
 	}
 	
-	public MovieBuilderObject addProducers(String producers) {
+	public MovieBuilderObject withProducers(String producers) {
 		String[] producersNames = producers.split(",");
 		for(String name : producersNames) {
 			name = sanitizePluralString(name);
@@ -54,7 +54,7 @@ public class MovieBuilderObject {
 		return this;
 	}
 
-	public MovieBuilderObject addStudios(String producers) {
+	public MovieBuilderObject withStudios(String producers) {
 		String[] studiosNames = producers.split(",");
 		for(String name : studiosNames) {
 			name = sanitizePluralString(name);

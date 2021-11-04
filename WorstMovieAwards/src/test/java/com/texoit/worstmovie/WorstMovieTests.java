@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MainApplicationTests {
+class WorstMovieTests {
 
 	@Test
-	void a() {
-		String a = "";
+	void getWorstMovieIntervalTest() {
+		System.out.println("TO TESTANDO AQUI MEEEEEEEEOOOOOOOOOOOOO");
 	}
 
 }
