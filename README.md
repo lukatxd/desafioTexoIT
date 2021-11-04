@@ -32,7 +32,10 @@ mvn test -Ddatabasefiller.folder="<b>YOUR FOLDER HERE</b>"
 
 # Swagger docs
 
+Once the API is running, the swagger doc becomes available.
+
 http://localhost:8080/api/swagger-ui/index.html?configUrl=/api/v3/api-docs/swagger-config#/get-worst-movie-award-interval-controller/a
+
 
 # How to make calls to the api
 
