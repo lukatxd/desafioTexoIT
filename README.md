@@ -51,21 +51,23 @@ http://localhost:8080/api/worstMovie/getIntervals
 
 # Expected outcome
 
+```javascript
 {
     "min": [
         {
-            "interval": 6,
-            "previousWin": 1984,
-            "followingWin": 1990,
-            "producer": "Bo Derek"
+            "producer": "Joel Silver",
+            "interval": 1,
+            "previousWin": 1990,
+            "followingWin": 1991
         }
     ],
     "max": [
         {
+            "producer": "Matthew Vaughn",
             "interval": 13,
             "previousWin": 2002,
-            "followingWin": 2015,
-            "producer": "Matthew Vaughn"
+            "followingWin": 2015
         }
     ]
 }
+```
