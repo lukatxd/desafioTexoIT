@@ -20,8 +20,14 @@ OPTIONAL: you can pass an argument in the command line to recursevily search .cs
 mvn spring-boot:run -Dspring-boot.run.arguments=--databasefiller.folder="<b>YOUR FOLDER HERE</b>"
 
 OPTIONAL 2: If you are running it from and IDE, such as STS, you can set the arguments in the launch/debug configurations. During development I used STS 4.12.1, and the argument syntax was different.
---databasefiller.folder="C:\Users\lucas\OneDrive\Área de Trabalho\Desafio TexoIt"
+--databasefiller.folder="<b>YOUR FOLDER HERE</b>"
 
+# How to run tests in the API
+
+The following maven command will run the api Use the command:
+<b>mvn test</b>
+OPTIONAL: 
+mvn test -Ddatabasefiller.folder="<b>YOUR FOLDER HERE</b>"
 
 # How to make calls to the api
 
